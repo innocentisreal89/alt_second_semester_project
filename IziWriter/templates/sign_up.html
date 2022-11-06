@@ -1,0 +1,45 @@
+{% extends 'base.html'%}
+{% block head %} <title>SignUp</title>{% endblock%}
+{% block body %}
+<form action="{{url_for('register')}}" method="POST">
+        <div class="form-group">
+            <h3>SignUp</h3>
+        </div>
+        <div class="form-group">
+            <label for="fistname">First Name</label>
+            <input type="text" name="firstname" class="form-control" id="firstname" placeholder="Enter First Name" aria-label="Enter First Name">
+        </div>
+        <div class="form-group">
+            <label for="lastname">Last Name</label>
+            <input type="text" name="lastname" class="form-control" id="lastname" placeholder="Enter Last Name " aria-label="Enter Last Name">
+        </div>
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" name="email" class="form-control" id="email" placeholder="Enter Email " aria-label="Enter Email">
+        </div>
+        <div class="form-group">
+            <label for="phone">Phone Number</label>
+            <input type="tel" name="phone_number" class="form-control" id="phone_number" placeholder="Enter Phone Number " aria-label="Enter Phone Number">
+        </div>
+        <div class="form-group">
+            <label for="username">Username</label>
+            <input type="text" name="username" class="form-control" id="username" placeholder="Enter Username " aria-label="Enter Username">
+        </div>
+        <div class="form-group">
+            <label for="password"> Password</label>
+            <input type="password" name="password" class="form-control" id="password" placeholder="Enter Password" aria-label="Enter Password">
+        </div>
+        <div class="form-group">
+            <label for="confim_password">Confirm Password</label>
+            <input type="text" name="confirm_password" class="form-control" id="confirm_password" placeholder="Confirm Password" aria-label="Confirm Password ">
+        </div>
+        <div class="form-group">
+            <input type="submit" value="SignUp" class="btn">
+        </div>
+        <div class="form-group">
+            <small>
+                Already have an account, <a href="{{url_for('login')}}">Login</a>
+            </small>
+        </div>
+    </form>
+{% endblock %}

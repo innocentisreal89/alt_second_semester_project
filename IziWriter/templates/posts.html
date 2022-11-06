@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% block head %}
+<title>Posts Page </title>
+{% endblock%}
+
+{% block body %}
+<br>
+
+ {% if current_user.is_authenticated %}
+<div>
+    <h1 style="display: inline">Post Feeds </h1>
+    <a style="display: inline" class="btn btn-success float-right" href="/posts/new">+ New Post</a>
+</div>
+<br>
+<hr>
+{% else %}
+<div>
+    <h1 style="display: inline">All Posts Here: </h1>
+</div>
+<br>
+<hr> 
+{% endif %}
+{% for post in posts%}
+    
+    <h2>{{post.title}}</h2>
+    <p style="white-space: pre-wrap">{{post.content}}</p>
+    <p>{{post.posted_on}}  | <b>{{post.users.username}}</b> </p>
+    <hr>
+     
+    
+   
+    {% if current_user.id == post.user_id %}
+        <br>
+        <a href="/posts/delete/{{post.id}}"><img
+                    src="https://qph.fs.quoracdn.net/main-qimg-83c6de25ed91d13a4f09fb5f11ca8853" height="15px" width="15px"></a>
+        <a href="/posts/edit/{{post.id}}"><img
+                    src="https://www.2g-eng.com/wp-content/uploads/2016/01/design-engineering-icon-small.png" height="15px"
+                    width="15px"></a>
+        <hr>
+    {% endif %}    
+    
+        
+   
+{% endfor %}
+
+{% endblock%}
